@@ -12,6 +12,7 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 //https://blog.piasy.com/2016/06/07/Open-gl-es-android-2-part-1/
+//http://blog.csdn.net/zhoudailiang/article/details/50176143
 public class MainActivity extends AppCompatActivity {
 
     @Override
