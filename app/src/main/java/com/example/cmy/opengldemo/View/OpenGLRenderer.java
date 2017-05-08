@@ -13,6 +13,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class OpenGLRenderer implements GLSurfaceView.Renderer {
 
     SmoothColoredSquare square;
+    Plane plane;
     int angle;
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -24,6 +25,7 @@ public class OpenGLRenderer implements GLSurfaceView.Renderer {
         gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT,
                 GL10.GL_NICEST);
         square = new SmoothColoredSquare();
+        plane = new Plane(6,6,6,6);
     }
 
 
@@ -40,7 +42,7 @@ public class OpenGLRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 gl) {
-        draw0(gl);
+        draw1(gl);
     }
 
     /**
@@ -99,5 +101,16 @@ public class OpenGLRenderer implements GLSurfaceView.Renderer {
 
         // Increse the angle.
         angle++;
+    }
+
+    /**
+     * 正方形
+     * @param gl
+     */
+    private void draw1(GL10 gl){
+        gl.glClear(GL10.GL_COLOR_BUFFER_BIT | GL10.GL_DEPTH_BUFFER_BIT);
+        gl.glLoadIdentity();
+        gl.glTranslatef(0,0,10);
+        plane.draw(gl);
     }
 }
